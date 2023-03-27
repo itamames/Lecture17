@@ -93,13 +93,13 @@ While there are unknown nodes in the graph
     Select the unknown node v with lowest distance
     Mark v as known
     For each edge (v,u) with weight w,
-		c1 = v.dist + w // distance of best path through v to u   
+	c1 = v.dist + w // distance of best path through v to u   
         c2 = u.cost	    // distance of best path to u previously known
         if(c1 < c2)	   // if the path through v is better /shorter
-            {      
-		        u.dist = c1
+        {      
+		u.dist = c1
                 u.path = v    // for computing actual paths
-		    }
+	}
 ```
 Example:
 
