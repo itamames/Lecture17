@@ -206,7 +206,6 @@ Shortest path (A,D) = [A,D] = 11
 
 Shortest path (A,D) = [A,B,C,D] = 1 !!!
 
-![Graph](images/Lecture17m.png)
 
 ## Implementation
 
