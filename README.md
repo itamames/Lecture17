@@ -137,7 +137,7 @@ Efficiency, first approach
 
 ![Graph](images/Lecture17n.png)
 
-How to improve the O(|V|<sup>2</sup>) of the Dijkstra’s Algorithm?
+How to improve the O(\|V\|<sup>2</sup>) of the Dijkstra’s Algorithm?
 
 Hint: use a MinHeap to store the vertices for which shortest distance is not finalized yet.
 
