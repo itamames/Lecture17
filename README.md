@@ -12,7 +12,7 @@ For the unweighted path length is merely the number of edges on the path, namely
 
 ### Single-Source Shortest-Path Problem.
 
-Given a weighted graph, G = (V,E), and a distinguished vertex, s, find the shortest weighted path from s to every other vertex in G.
+Given a weighted graph, G = (V, E), and a distinguished vertex, s, find the shortest weighted path from s to every other vertex in G.
 
 ### Example #1
 
@@ -24,7 +24,7 @@ The shortest unweighted path between these vertices is 2 (blue path).
 
 Note: 
 
-For the shortest unweighted path we are only interested in the number of edges contained on the path. This is clearly a special case of the weighted shortest-path problem, since we could assign all edges a weight of 1.
+For the shortest unweighted path, we are only interested in the number of edges contained on the path. This is a special case of the weighted shortest-path problem since we could assign all edges a weight of 1.
 
 
 ### Example #2: 
@@ -62,7 +62,7 @@ Repeat
 
 ### The Problem: 
 
-Given a digraph with non-negative edge weights, G=(V,E), and a distinguished source vertex s in V. 
+Given a digraph with non-negative edge weights, G=(V, E), and a distinguished source vertex s in V. 
 
 Determine the distance and a shortest path from the source vertex to every vertex in the digraph.
 
@@ -90,7 +90,7 @@ For each node v, set  v.dist = ∞ and v.known = false
 Set source.dist = 0
 
 While there are unknown nodes in the graph
-    Select the unknown node v with lowest distance
+    Select the unknown node v with the lowest distance
     Mark v as known
     For each edge (v,u) with weight w,
 	c1 = v.dist + w // distance of best path through v to u   
@@ -130,20 +130,20 @@ Source:
 https://ocw.mit.edu/courses/sloan-school-of-management/15-053-optimization-methods-in-management-science-spring-2013/lecture-notes/MIT15_053S13_lec15.pdf
 
 
-Efficiency, first approach
+Efficiency, the first approach
 
 
 
 
 ![Graph](images/Lecture17n.png)
 
-How to improve the O(\|V\|<sup>2</sup>) of the Dijkstra’s Algorithm?
+How to improve the O(\|V\|<sup>2</sup>) of Dijkstra’s Algorithm?
 
-Hint: use a MinHeap to store the vertices for which shortest distance is not finalized yet.
+Hint: use a MinHeap to store the vertices for which the shortest distance is not finalized yet.
 
 Recommended Link: 
 
-https://www.youtube.com/watch?v=zXfDYaahsNA
+(https://www.youtube.com/watch?v=zXfDYaahsNA)
 
 ## Example 4
 
@@ -151,7 +151,7 @@ Given a source vertex s from a set of vertices V in a weighted digraph where all
 
 ![Graph](images/Lecture17o.png)
 
-For instance, consider the following graph. We will start with vertex A, So vertex A has a distance 0, and the remaining vertices have an undefined (infinite) distance from the source. Let S be the set of vertices whose shortest path distances from the source are already calculated.
+For instance, consider the following graph. We will start with vertex A, So vertex A has a distance of 0, and the remaining vertices have an undefined (infinite) distance from the source. Let S be the set of vertices whose shortest path distances from the source are already calculated.
 
 ![Graph](images/Lecture17p.png)
 
@@ -161,7 +161,7 @@ We start from source vertex A and start relaxing A's neighbors. Since vertex B c
 
 ![Graph](images/Lecture17q.png)
 
-After processing all outgoing edges of A, we next consider a vertex having minimum distance. B has a distance of 10, E has distance 3, and all remaining vertices have distance INFINITY. So, we choose E and push it into set S. Now our set becomes S = {A, E}. Next, we relax with E's neighbors. E has 2 neighbors B and C. We have already found one route to vertex B through vertex A having cost 10. But if we visit a vertex B through vertex E, we are getting an even cheaper route, i.e., (cost of edge A–E + cost of edge E–B) = 3 + 1 = 4 < 10 (cost of edge A–B).
+After processing all outgoing edges of A, we next consider a vertex having minimum distance. B has a distance of 10, E has a distance of 3, and all remaining vertices have a distance of INFINITY. So, we choose E and push it into set S. Now our set becomes S = {A, E}. Next, we relax with E's neighbors. E has 2 neighbors B and C. We have already found one route to vertex B through vertex A having cost of 10. But if we visit vertex B through vertex E, we are getting an even cheaper route, i.e., (cost of edge A–E + cost of edge E–B) = 3 + 1 = 4 < 10 (cost of edge A–B).
 
 ![Graph](images/Lecture17r.png)
 
@@ -181,6 +181,7 @@ We repeat the process till we have processed all the vertices, i.e., Set S becom
 
 https://youtu.be/EFg3u_E6eHU
 
+
 ## Shortest paths with negative weights: failed examples!
 
 ![Graph](images/Lecture17l.png)
@@ -191,7 +192,7 @@ Shortest path (A,D) = [A,D] = 2
 
 ### Correct solution:
 
-Shortest path (A,D) = [A,B,C,D] = 1 !!!
+Shortest path (A, D) = [A, B, C, D] = 1 !!!
 
 
 ## Re-weighting. 
@@ -204,13 +205,13 @@ Shortest path (A,D) = [A,D] = 11
 
 ### Correct solution (in the original graph):
 
-Shortest path (A,D) = [A,B,C,D] = 1 !!!
+Shortest path (A, D) = [A,B, C,D] = 1 !!!
 
 
 ## Implementation
 
 ```java
-import java.util.*;
+import java. util.*;
  
 // A class to store a graph edge
 class Edge
@@ -273,7 +274,7 @@ class Main
     // Run Dijkstra’s algorithm on a given graph
     public static void findShortestPaths(Graph graph, int source, int n)
     {
-        // create a min-heap and push source node having distance 0
+        //Create a min-heap and push source node having distance 0
         PriorityQueue<Node> minHeap;
         minHeap = new PriorityQueue<>(Comparator.comparingInt(node -> node.weight));
         minHeap.add(new Node(source, 0));
